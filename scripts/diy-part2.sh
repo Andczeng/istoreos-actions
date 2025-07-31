@@ -37,9 +37,9 @@
 # sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
 # sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/' .config
 # 移除ddnsto
-sed -i 's/CONFIG_PACKAGE_ddnsto=y/CONFIG_PACKAGE_ddnsto=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-ddnsto=y/CONFIG_PACKAGE_luci-app-ddnsto=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-i18n-ddnsto-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddnsto-zh-cn=n/' .config
+# sed -i 's/CONFIG_PACKAGE_ddnsto=y/CONFIG_PACKAGE_ddnsto=n/' .config
+# sed -i 's/CONFIG_PACKAGE_luci-app-ddnsto=y/CONFIG_PACKAGE_luci-app-ddnsto=n/' .config
+# sed -i 's/CONFIG_PACKAGE_luci-i18n-ddnsto-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddnsto-zh-cn=n/' .config
 
 # 移除网卡驱动
 # sed -i 's/CONFIG_PACKAGE_kmod-ath=y/CONFIG_PACKAGE_kmod-ath=n/' .config
@@ -53,7 +53,7 @@ sed -i 's/CONFIG_PACKAGE_luci-i18n-ddnsto-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddnst
 
 # sed -i 's/CONFIG_PACKAGE_iw=y/CONFIG_PACKAGE_iw=n/' .config
 # sed -i 's/CONFIG_PACKAGE_iwinfo=y/CONFIG_PACKAGE_iwinfo=n/' .config  
-# sed -i 's/CONFIG_PACKAGE_kmod-iwlwifi=y/CONFIG_PACKAGE_kmod-iwlwifi=n/' .config
+sed -i 's/CONFIG_PACKAGE_kmod-iwlwifi=y/CONFIG_PACKAGE_kmod-iwlwifi=n/' .config
 # sed -i 's/CONFIG_PACKAGE_iwlwifi-firmware-ax101=y/CONFIG_PACKAGE_iwlwifi-firmware-ax101=n/' .config
 # sed -i 's/CONFIG_PACKAGE_iwlwifi-firmware-ax200=y/CONFIG_PACKAGE_iwlwifi-firmware-ax200=n/' .config
 # sed -i 's/CONFIG_PACKAGE_iwlwifi-firmware-ax201=y/CONFIG_PACKAGE_iwlwifi-firmware-ax201=n/' .config
@@ -88,10 +88,10 @@ pushd kiddin9
 git clone --depth=1 https://github.com/kiddin9/kwrt-packages .
 popd
 
-mkdir Modem-Support
-pushd Modem-Support
-git clone --depth=1 https://github.com/Siriling/5G-Modem-Support .
-popd
+#mkdir Modem-Support
+#pushd Modem-Support
+#git clone --depth=1 https://github.com/Siriling/5G-Modem-Support .
+#popd
 
 mkdir MyConfig
 pushd MyConfig
@@ -264,11 +264,11 @@ cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
 
 # 5G模组短信插件
 # cp -rf temp/luci-app-sms-tool/* luci-app-sms-tool
-mkdir sms-tool
-mkdir luci-app-sms-tool
-cp -rf ../../Modem-Support/sms-tool/* sms-tool
-cp -rf ../../Modem-Support/luci-app-sms-tool/* luci-app-sms-tool
-cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-sms-tool/* luci-app-sms-tool
+#mkdir sms-tool
+#mkdir luci-app-sms-tool
+#cp -rf ../../Modem-Support/sms-tool/* sms-tool
+#cp -rf ../../Modem-Support/luci-app-sms-tool/* luci-app-sms-tool
+#cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-sms-tool/* luci-app-sms-tool
 
 # 5G模组信息插件
 # svn export https://github.com/qiuweichao/luci-app-modem-info/trunk/luci-app-3ginfo-lite
@@ -276,10 +276,10 @@ cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-sms-tool/* 
 # svn export https://github.com/owner888/luci-app-3ginfo-zh_cn/trunk/luci-app-3ginfo
 
 # 5G模组信息插件+AT工具
-mkdir luci-app-modem
-cp -rf ../../Modem-Support/luci-app-modem/* luci-app-modem
-rm -rf ../../Modem-Support/luci-app-modem/po/zh_Hans #解决汉化问题
-popd
+#mkdir luci-app-modem
+#cp -rf ../../Modem-Support/luci-app-modem/* luci-app-modem
+#rm -rf ../../Modem-Support/luci-app-modem/po/zh_Hans #解决汉化问题
+#popd
 
 # 5G模组拨号脚本
 # mkdir -p package/base-files/files/root/5GModem
@@ -477,8 +477,9 @@ CONFIG_PACKAGE_luci-app-sms-tool=y
 # 5G模组信息插件+AT工具
 # CONFIG_PACKAGE_luci-app-cpe=y
 # CONFIG_PACKAGE_sendat=y
-CONFIG_PACKAGE_sms-tool=y
-CONFIG_PACKAGE_luci-app-modem=y
+# CONFIG_PACKAGE_sms-tool=y
+# CONFIG_PACKAGE_luci-app-modem=y
+
 # CONFIG_PACKAGE_kmod-qmi_wwan_q=y
 # CONFIG_PACKAGE_kmod-qmi_wwan_f=y
 # CONFIG_PACKAGE_kmod-qmi_wwan_m=y
@@ -496,11 +497,11 @@ CONFIG_PACKAGE_kmod-qmi_wwan_t=y
 # CONFIG_PACKAGE_luci-app-gobinetmodem=y
 
 # 串口调试工具
-CONFIG_PACKAGE_minicom=y
+# CONFIG_PACKAGE_minicom=y
 
 # 脚本拨号工具依赖
-CONFIG_PACKAGE_procps-ng=y
-CONFIG_PACKAGE_procps-ng-ps=y
+# CONFIG_PACKAGE_procps-ng=y
+# CONFIG_PACKAGE_procps-ng-ps=y
 " >> .config
 
 # 额外组件
