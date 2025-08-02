@@ -53,7 +53,7 @@
 
 # sed -i 's/CONFIG_PACKAGE_iw=y/CONFIG_PACKAGE_iw=n/' .config
 # sed -i 's/CONFIG_PACKAGE_iwinfo=y/CONFIG_PACKAGE_iwinfo=n/' .config  
-sed -i 's/CONFIG_PACKAGE_kmod-iwlwifi=y/CONFIG_PACKAGE_kmod-iwlwifi=n/' .config
+# sed -i 's/CONFIG_PACKAGE_kmod-iwlwifi=y/CONFIG_PACKAGE_kmod-iwlwifi=n/' .config
 # sed -i 's/CONFIG_PACKAGE_iwlwifi-firmware-ax101=y/CONFIG_PACKAGE_iwlwifi-firmware-ax101=n/' .config
 # sed -i 's/CONFIG_PACKAGE_iwlwifi-firmware-ax200=y/CONFIG_PACKAGE_iwlwifi-firmware-ax200=n/' .config
 # sed -i 's/CONFIG_PACKAGE_iwlwifi-firmware-ax201=y/CONFIG_PACKAGE_iwlwifi-firmware-ax201=n/' .config
@@ -93,10 +93,10 @@ popd
 #git clone --depth=1 https://github.com/Siriling/5G-Modem-Support .
 #popd
 
-mkdir MyConfig
-pushd MyConfig
-git clone --depth=1 https://github.com/Siriling/OpenWRT-MyConfig .
-popd
+#mkdir MyConfig
+#pushd MyConfig
+#git clone --depth=1 https://github.com/Siriling/OpenWRT-MyConfig .
+#popd
 
 mkdir package/community
 pushd package/community
@@ -247,19 +247,19 @@ sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为
 # svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
 # 5G通信模组拨号工具
-mkdir quectel_QMI_WWAN
+#mkdir quectel_QMI_WWAN
 # mkdir fibocom_QMI_WWAN
 # mkdir meig_QMI_WWAN
-mkdir tw_QMI_WWAN
-mkdir quectel_cm_5G
-mkdir quectel_MHI
+# mkdir tw_QMI_WWAN
+# mkdir quectel_cm_5G
+# mkdir quectel_MHI
 # mkdir luci-app-hypermodem
-cp -rf ../../Modem-Support/quectel_QMI_WWAN/* quectel_QMI_WWAN
+# cp -rf ../../Modem-Support/quectel_QMI_WWAN/* quectel_QMI_WWAN
 # cp -rf ../../Modem-Support/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
 # cp -rf ../../Modem-Support/meig_QMI_WWAN/* meig_QMI_WWAN
-cp -rf ../../Modem-Support/tw_QMI_WWAN/* tw_QMI_WWAN
-cp -rf ../../Modem-Support/quectel_cm_5G/* quectel_cm_5G
-cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
+# cp -rf ../../Modem-Support/tw_QMI_WWAN/* tw_QMI_WWAN
+# cp -rf ../../Modem-Support/quectel_cm_5G/* quectel_cm_5G
+# cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
 # cp -rf ../../Modem-Support/luci-app-hypermodem/* luci-app-hypermodem
 
 # 5G模组短信插件
@@ -483,7 +483,7 @@ CONFIG_PACKAGE_luci-app-sms-tool=y
 # CONFIG_PACKAGE_kmod-qmi_wwan_q=y
 # CONFIG_PACKAGE_kmod-qmi_wwan_f=y
 # CONFIG_PACKAGE_kmod-qmi_wwan_m=y
-CONFIG_PACKAGE_kmod-qmi_wwan_t=y
+# CONFIG_PACKAGE_kmod-qmi_wwan_t=y
 
 # QMI拨号工具（移远，广和通）
 # CONFIG_PACKAGE_quectel-CM-5G=y
