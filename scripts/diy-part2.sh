@@ -14,7 +14,7 @@
 # sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 
 # 修改子网掩码
-#sed -i 's/255.255.255.0/255.255.0.0/g' package/base-files/files/bin/config_generate
+# sed -i 's/255.255.255.0/255.255.0.0/g' package/base-files/files/bin/config_generate
 
 # 修改主机名字，把 iStore OS 修改你喜欢的就行（不能纯数字或者使用中文）
 # sed -i 's/OpenWrt/iStore OS/g' package/base-files/files/bin/config_generate
@@ -29,13 +29,13 @@
 # $GITHUB_WORKSPACE/scripts/add-device.sh
 
 # 移除ddns
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/' .config
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/' .config
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/' .config
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/' .config
-# sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/' .config
-# sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
-# sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts is not set/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare is not set/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod is not set/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services is not set/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun is not set/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns is not set/' .config
+sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn is not set/' .config
 # 移除ddnsto
 # sed -i 's/CONFIG_PACKAGE_ddnsto=y/CONFIG_PACKAGE_ddnsto=n/' .config
 # sed -i 's/CONFIG_PACKAGE_luci-app-ddnsto=y/CONFIG_PACKAGE_luci-app-ddnsto=n/' .config
@@ -80,7 +80,7 @@
 # sed -i 's/CONFIG_PACKAGE_luci-ssl-openssl=y/CONFIG_PACKAGE_luci-ssl-openssl=n/' .config
 
 # 移除 bootstrap 主题
-sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap is not set/' .config
 
 # 添加第三方应用
 mkdir kiddin9
@@ -88,9 +88,15 @@ pushd kiddin9
 git clone --depth=1 https://github.com/kiddin9/kwrt-packages .
 popd
 
-mkdir Modem-Support
-pushd Modem-Support
-git clone --depth=1 https://github.com/Siriling/5G-Modem-Support .
+#mkdir Modem-Support
+#pushd Modem-Support
+#git clone --depth=1 https://github.com/Siriling/5G-Modem-Support .
+#popd
+
+#qmodem
+mkdir qmodem
+pushd qmodem
+git clone --depth=1 https://github.com/FUjr/QModem .
 popd
 
 #mkdir MyConfig
@@ -134,8 +140,8 @@ cp -rf ../../kiddin9/luci-app-ramfree/* luci-app-ramfree
 # mkdir luci-app-ttyd
 # cp -rf ../kiddin9/luci-app-ttyd/* luci-app-ttyd
 #usb3disable（禁用USB3.0接口）
-mkdir luci-app-usb3disable
-cp -rf ../../kiddin9/luci-app-usb3disable/* luci-app-usb3disable
+# mkdir luci-app-usb3disable
+# cp -rf ../../kiddin9/luci-app-usb3disable/* luci-app-usb3disable
 #NetData（系统监控）
 # mkdir luci-app-netdata
 # cp -rf ../../kiddin9/luci-app-netdata/* luci-app-netdata
@@ -247,28 +253,38 @@ sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为
 # svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
 # 5G通信模组拨号工具
+# mkdir quectel_QMI_WWAN
+# mkdir fibocom_QMI_WWAN
+# mkdir meig_QMI_WWAN
+# mkdir tw_QMI_WWAN
+# mkdir quectel_cm_5G
+# mkdir quectel_MHI
+# mkdir luci-app-hypermodem
+# cp -rf ../../Modem-Support/quectel_QMI_WWAN/* quectel_QMI_WWAN
+# cp -rf ../../Modem-Support/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
+# cp -rf ../../Modem-Support/meig_QMI_WWAN/* meig_QMI_WWAN
+# cp -rf ../../Modem-Support/tw_QMI_WWAN/* tw_QMI_WWAN
+# cp -rf ../../Modem-Support/quectel_cm_5G/* quectel_cm_5G
+# cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
+# cp -rf ../../Modem-Support/luci-app-hypermodem/* luci-app-hypermodem
+
+#qmodem
 mkdir quectel_QMI_WWAN
 mkdir fibocom_QMI_WWAN
-mkdir meig_QMI_WWAN
-mkdir tw_QMI_WWAN
-mkdir quectel_cm_5G
+mkdir simcom_QMI_WWAN
 mkdir quectel_MHI
-# mkdir luci-app-hypermodem
-cp -rf ../../Modem-Support/quectel_QMI_WWAN/* quectel_QMI_WWAN
-cp -rf ../../Modem-Support/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
-cp -rf ../../Modem-Support/meig_QMI_WWAN/* meig_QMI_WWAN
-cp -rf ../../Modem-Support/tw_QMI_WWAN/* tw_QMI_WWAN
-cp -rf ../../Modem-Support/quectel_cm_5G/* quectel_cm_5G
-cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
-# cp -rf ../../Modem-Support/luci-app-hypermodem/* luci-app-hypermodem
+cp -rf ../../qmodem/driver/quectel_QMI_WWAN/* quectel_QMI_WWAN
+cp -rf ../../qmodem/driver/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
+cp -rf ../../qmodem/driver/simcom_QMI_WWAN/* simcom_QMI_WWAN
+cp -rf ../../qmodem/driver/quectel_MHI/* quectel_MHI
 
 # 5G模组短信插件
 # cp -rf temp/luci-app-sms-tool/* luci-app-sms-tool
-#mkdir sms-tool
-#mkdir luci-app-sms-tool
-#cp -rf ../../Modem-Support/sms-tool/* sms-tool
-#cp -rf ../../Modem-Support/luci-app-sms-tool/* luci-app-sms-tool
-#cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-sms-tool/* luci-app-sms-tool
+# mkdir sms-tool
+# mkdir luci-app-sms-tool
+# cp -rf ../../Modem-Support/sms-tool/* sms-tool
+# cp -rf ../../Modem-Support/luci-app-sms-tool/* luci-app-sms-tool
+# cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-sms-tool/* luci-app-sms-tool
 
 # 5G模组信息插件
 # svn export https://github.com/qiuweichao/luci-app-modem-info/trunk/luci-app-3ginfo-lite
@@ -376,7 +392,7 @@ CONFIG_PACKAGE_luci-app-openclash=y
 
 # 去广告应用
 echo "
-# CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
 # CONFIG_PACKAGE_luci-app-dnsfilter=y
 # CONFIG_PACKAGE_luci-app-ikoolproxy=y
 " >> .config
@@ -419,7 +435,7 @@ echo "
 # DNS
 echo "
 # CONFIG_PACKAGE_luci-app-mosdns=y
-# CONFIG_PACKAGE_luci-app-smartdns=y
+CONFIG_PACKAGE_luci-app-smartdns=y
 " >> .config
 
 # DDNS
@@ -497,7 +513,7 @@ echo "
 # CONFIG_PACKAGE_luci-app-gobinetmodem=y
 
 # 串口调试工具
-# CONFIG_PACKAGE_minicom=y
+CONFIG_PACKAGE_minicom=y
 
 # 脚本拨号工具依赖
 # CONFIG_PACKAGE_procps-ng=y
