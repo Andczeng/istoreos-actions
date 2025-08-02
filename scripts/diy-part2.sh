@@ -88,10 +88,10 @@ pushd kiddin9
 git clone --depth=1 https://github.com/kiddin9/kwrt-packages .
 popd
 
-#mkdir Modem-Support
-#pushd Modem-Support
-#git clone --depth=1 https://github.com/Siriling/5G-Modem-Support .
-#popd
+mkdir Modem-Support
+pushd Modem-Support
+git clone --depth=1 https://github.com/Siriling/5G-Modem-Support .
+popd
 
 #mkdir MyConfig
 #pushd MyConfig
@@ -137,8 +137,8 @@ cp -rf ../../kiddin9/luci-app-ramfree/* luci-app-ramfree
 mkdir luci-app-usb3disable
 cp -rf ../../kiddin9/luci-app-usb3disable/* luci-app-usb3disable
 #NetData（系统监控）
-mkdir luci-app-netdata
-cp -rf ../../kiddin9/luci-app-netdata/* luci-app-netdata
+# mkdir luci-app-netdata
+# cp -rf ../../kiddin9/luci-app-netdata/* luci-app-netdata
 #rtbwmon（实施流量）
 mkdir luci-app-rtbwmon
 cp -rf ../../kiddin9/luci-app-rtbwmon/* luci-app-rtbwmon
@@ -247,19 +247,19 @@ sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为
 # svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
 # 5G通信模组拨号工具
-#mkdir quectel_QMI_WWAN
-# mkdir fibocom_QMI_WWAN
-# mkdir meig_QMI_WWAN
-# mkdir tw_QMI_WWAN
-# mkdir quectel_cm_5G
-# mkdir quectel_MHI
+mkdir quectel_QMI_WWAN
+mkdir fibocom_QMI_WWAN
+mkdir meig_QMI_WWAN
+mkdir tw_QMI_WWAN
+mkdir quectel_cm_5G
+mkdir quectel_MHI
 # mkdir luci-app-hypermodem
-# cp -rf ../../Modem-Support/quectel_QMI_WWAN/* quectel_QMI_WWAN
-# cp -rf ../../Modem-Support/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
-# cp -rf ../../Modem-Support/meig_QMI_WWAN/* meig_QMI_WWAN
-# cp -rf ../../Modem-Support/tw_QMI_WWAN/* tw_QMI_WWAN
-# cp -rf ../../Modem-Support/quectel_cm_5G/* quectel_cm_5G
-# cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
+cp -rf ../../Modem-Support/quectel_QMI_WWAN/* quectel_QMI_WWAN
+cp -rf ../../Modem-Support/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
+cp -rf ../../Modem-Support/meig_QMI_WWAN/* meig_QMI_WWAN
+cp -rf ../../Modem-Support/tw_QMI_WWAN/* tw_QMI_WWAN
+cp -rf ../../Modem-Support/quectel_cm_5G/* quectel_cm_5G
+cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
 # cp -rf ../../Modem-Support/luci-app-hypermodem/* luci-app-hypermodem
 
 # 5G模组短信插件
@@ -431,7 +431,7 @@ echo "
 
 # 内网穿透
 echo "
-# CONFIG_PACKAGE_luci-app-zerotier=y
+CONFIG_PACKAGE_luci-app-zerotier=y
 # CONFIG_PACKAGE_luci-app-frpc=y
 # CONFIG_PACKAGE_luci-app-frps=y
 # CONFIG_PACKAGE_luci-app-nps=y
@@ -468,7 +468,7 @@ echo "
 # CONFIG_PACKAGE_ext-rooter-basic=y
 
 # 5G模组短信插件
-CONFIG_PACKAGE_luci-app-sms-tool=y
+# CONFIG_PACKAGE_luci-app-sms-tool=y
 
 # 5G模组信息插件
 # CONFIG_PACKAGE_luci-app-3ginfo-lite=y
