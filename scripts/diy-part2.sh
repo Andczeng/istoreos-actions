@@ -296,17 +296,17 @@ CONFIG_PACKAGE_quectel-CM-5G-M=y
 CONFIG_PACKAGE_luci-lua-runtime=y
 " >> .config
 
-sed -i 's/CONFIG_PACKAGE_luci-proto-3g=y/CONFIG_PACKAGE_luci-proto-3g=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-bonding=y/CONFIG_PACKAGE_luci-proto-bonding=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-modemmanager=y/CONFIG_PACKAGE_luci-proto-modemmanager=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n/' .config
-sed -i 's/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n/' .config
-sed -i 's/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n/' .config
-sed -i 's/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n/' .config
-sed -i 's/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n/' .config
-sed -i 's/CONFIG_PACKAGE_adb-enablemodem=y/CONFIG_PACKAGE_adb-enablemodem=n/' .config
+sed -i 'CONFIG_PACKAGE_luci-proto-3g=y/d' .config
+sed -i 'CONFIG_PACKAGE_luci-proto-bonding=y/d' .config
+sed -i 'CONFIG_PACKAGE_luci-proto-modemmanager=y/d' .config
+sed -i 'CONFIG_PACKAGE_luci-proto-ncm=y/d' .config
+sed -i 'CONFIG_PACKAGE_luci-proto-qmi=y/d' .config
+sed -i 'CONFIG_PACKAGE_luci-proto-relay=y/d' .config
+sed -i 'CONFIG_PACKAGE_modemmanager=y/d' .config
+sed -i 'CONFIG_MODEMMANAGER_WITH_MBIM=y/d' .config
+sed -i 'CONFIG_MODEMMANAGER_WITH_QMI=y/d' .config
+sed -i 'CONFIG_MODEMMANAGER_WITH_QRTR=y/d' .config
+sed -i 'CONFIG_PACKAGE_adb-enablemodem=y/d' .config
 
 mkdir quectel_QMI_WWAN
 mkdir fibocom_QMI_WWAN
