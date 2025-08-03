@@ -29,13 +29,14 @@
 # $GITHUB_WORKSPACE/scripts/add-device.sh
 
 # 移除ddns
-sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/' .config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/g" .config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/g" .config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/g" .config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/g" . config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/g" .config
+sed -i "s/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/g" .config
+sed -i "s/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/g" .config
+
 # 移除ddnsto
 # sed -i 's/CONFIG_PACKAGE_ddnsto=y/CONFIG_PACKAGE_ddnsto=n/' .config
 # sed -i 's/CONFIG_PACKAGE_luci-app-ddnsto=y/CONFIG_PACKAGE_luci-app-ddnsto=n/' .config
@@ -80,7 +81,7 @@ sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh
 # sed -i 's/CONFIG_PACKAGE_luci-ssl-openssl=y/CONFIG_PACKAGE_luci-ssl-openssl=n/' .config
 
 # 移除 bootstrap 主题
-sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
+sed -i "s/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/g" .config
 
 # 添加第三方应用
 mkdir kiddin9
@@ -270,43 +271,18 @@ sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为
 
 #qmodem
 
-echo "
-CONFIG_PACKAGE_kmod-pcie_mhi=y
-CONFIG_PACKAGE_kmod-qmi_wwan_f=y
-CONFIG_PACKAGE_kmod-qmi_wwan_q=y
-CONFIG_PACKAGE_kmod-qmi_wwan_s=y
-CONFIG_PACKAGE_luci-app-qmodem=y
-CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_vendor-qmi-wwan=y
-# CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_generic-qmi-wwan is not set
-CONFIG_PACKAGE_luci-app-qmodem_USE_TOM_CUSTOMIZED_QUECTEL_CM=y
-# CONFIG_PACKAGE_luci-app-qmodem_USING_QWRT_QUECTEL_CM_5G is not set
-# CONFIG_PACKAGE_luci-app-qmodem_USING_NORMAL_QUECTEL_CM is not set
-CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_PCI_SUPPORT=y
-# CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_MTK_T7XX_SUPPORT is not set
-CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_QFIREHOSE_SUPPORT=y
-# CONFIG_PACKAGE_luci-app-qmodem-hc is not set
-CONFIG_PACKAGE_luci-app-qmodem-mwan=y
-CONFIG_PACKAGE_luci-app-qmodem-sms=y
-CONFIG_PACKAGE_luci-app-qmodem-ttl=y
-CONFIG_PACKAGE_luci-i18n-qmodem-mwan-zh-cn=y
-# CONFIG_PACKAGE_luci-i18n-qmodem-ru is not set
-CONFIG_PACKAGE_luci-i18n-qmodem-sms-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-qmodem-zh-cn=y
-CONFIG_PACKAGE_quectel-CM-5G-M=y
-CONFIG_PACKAGE_luci-lua-runtime=y
-" >> .config
+sed -i "s/CONFIG_PACKAGE_luci-proto-3g=y/CONFIG_PACKAGE_luci-proto-3g=n/g" .config
+sed -i "s/CONFIG_PACKAGE_luci-proto-bonding=y/CONFIG_PACKAGE_luci-proto-bonding=n/g" .config
+sed -i "s/CONFIG_PACKAGE_luci-proto-modemmanager=y/CONFIG_PACKAGE_luci-proto-modemmanager=n/g" .config
+sed -i "s/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n/g" .config
+sed -i "s/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n/g" .config
+sed -i "s/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n/g" .config
+sed -i "s/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n/g" .config
+sed -i "s/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n/g" .config
+sed -i "s/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n/g" .config
+sed -i "s/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n/g" .config
+sed -i "s/CONFIG_PACKAGE_adb-enablemodem=yCONFIG_PACKAGE_adb-enablemodem=n/g" .config
 
-sed -i 'CONFIG_PACKAGE_luci-proto-3g=y/d' .config
-sed -i 'CONFIG_PACKAGE_luci-proto-bonding=y/d' .config
-sed -i 'CONFIG_PACKAGE_luci-proto-modemmanager=y/d' .config
-sed -i 'CONFIG_PACKAGE_luci-proto-ncm=y/d' .config
-sed -i 'CONFIG_PACKAGE_luci-proto-qmi=y/d' .config
-sed -i 'CONFIG_PACKAGE_luci-proto-relay=y/d' .config
-sed -i 'CONFIG_PACKAGE_modemmanager=y/d' .config
-sed -i 'CONFIG_MODEMMANAGER_WITH_MBIM=y/d' .config
-sed -i 'CONFIG_MODEMMANAGER_WITH_QMI=y/d' .config
-sed -i 'CONFIG_MODEMMANAGER_WITH_QRTR=y/d' .config
-sed -i 'CONFIG_PACKAGE_adb-enablemodem=y/d' .config
 
 mkdir quectel_QMI_WWAN
 mkdir fibocom_QMI_WWAN
@@ -497,11 +473,35 @@ CONFIG_PACKAGE_luci-app-zerotier=y
 echo "
 # CONFIG_PACKAGE_luci-app-pushbot=y
 CONFIG_PACKAGE_luci-app-socat=y
+CONFIG_PACKAGE_luci-lua-runtime=y
 # CONFIG_PACKAGE_luci-app-unblockneteasemusic=y
 # CONFIG_PACKAGE_luci-app-uugamebooster=y
 # CONFIG_PACKAGE_luci-app-wifischedule=y
 # CONFIG_PACKAGE_luci-app-xlnetacc=y
 # CONFIG_PACKAGE_luci-udptools=y
+CONFIG_PACKAGE_kmod-pcie_mhi=y
+CONFIG_PACKAGE_kmod-qmi_wwan_f=y
+CONFIG_PACKAGE_kmod-qmi_wwan_q=y
+CONFIG_PACKAGE_kmod-qmi_wwan_s=y
+CONFIG_PACKAGE_luci-app-qmodem=y
+CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_vendor-qmi-wwan=y
+# CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_generic-qmi-wwan is not set
+CONFIG_PACKAGE_luci-app-qmodem_USE_TOM_CUSTOMIZED_QUECTEL_CM=y
+# CONFIG_PACKAGE_luci-app-qmodem_USING_QWRT_QUECTEL_CM_5G is not set
+# CONFIG_PACKAGE_luci-app-qmodem_USING_NORMAL_QUECTEL_CM is not set
+CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_PCI_SUPPORT=y
+# CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_MTK_T7XX_SUPPORT is not set
+CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_QFIREHOSE_SUPPORT=y
+# CONFIG_PACKAGE_luci-app-qmodem-hc is not set
+CONFIG_PACKAGE_luci-app-qmodem-mwan=y
+CONFIG_PACKAGE_luci-app-qmodem-sms=y
+CONFIG_PACKAGE_luci-app-qmodem-ttl=y
+CONFIG_PACKAGE_luci-i18n-qmodem-mwan-zh-cn=y
+# CONFIG_PACKAGE_luci-i18n-qmodem-ru is not set
+CONFIG_PACKAGE_luci-i18n-qmodem-sms-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-qmodem-zh-cn=y
+CONFIG_PACKAGE_quectel-CM-5G-M=y
+CONFIG_PACKAGE_luci-lua-runtime=y
 " >> .config
 
 #补充网卡
