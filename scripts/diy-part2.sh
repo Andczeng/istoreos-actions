@@ -200,10 +200,10 @@ fi
 
 # 去广告
 #ADGuardHome（kiddin9）
-mkdir luci-app-adguardhome
-cp -rf ../../kiddin9/luci-app-adguardhome/* luci-app-adguardhome
-cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-adguardhome/* luci-app-adguardhome
-sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为root）/' luci-app-adguardhome/po/zh_Hans/adguardhome.po
+＃mkdir luci-app-adguardhome
+＃cp -rf ../../kiddin9/luci-app-adguardhome/* luci-app-adguardhome
+＃cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-adguardhome/* luci-app-adguardhome
+＃sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为root）/' luci-app-adguardhome/po/zh_Hans/adguardhome.po
 #sed -i 's/+PACKAGE_$(PKG_NAME)_INCLUDE_binary:adguardhome//' luci-app-adguardhome/Makefile
 #ADGuardHome（kenzok8）
 # svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
@@ -278,7 +278,7 @@ sed -i "s/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n/g" ${G
 sed -i "s/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
 sed -i "s/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
 sed -i "s/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n/g" .${GITHUB_WORKSPACE}/openwrt/config
+sed -i "s/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n/g" .${GITHUB_WORKSPACE}/openwrt/.config
 sed -i "s/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
 sed -i "s/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
 sed -i "s/CONFIG_PACKAGE_adb-enablemodem=yCONFIG_PACKAGE_adb-enablemodem=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
