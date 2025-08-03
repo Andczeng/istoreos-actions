@@ -29,13 +29,13 @@
 # $GITHUB_WORKSPACE/scripts/add-device.sh
 
 # 移除ddns
-sed -i "s/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/g" .config
-sed -i "s/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/g" .config
-sed -i "s/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/g" .config
-sed -i "s/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/g" . config
-sed -i "s/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/g" .config
-sed -i "s/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/g" .config
-sed -i "s/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/g" .config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
 
 # 移除ddnsto
 # sed -i 's/CONFIG_PACKAGE_ddnsto=y/CONFIG_PACKAGE_ddnsto=n/' .config
@@ -81,7 +81,7 @@ sed -i "s/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh
 # sed -i 's/CONFIG_PACKAGE_luci-ssl-openssl=y/CONFIG_PACKAGE_luci-ssl-openssl=n/' .config
 
 # 移除 bootstrap 主题
-sed -i "s/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/g" .config
+sed -i "s/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
 
 # 添加第三方应用
 mkdir kiddin9
@@ -271,17 +271,17 @@ sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为
 
 #qmodem
 
-sed -i "s/CONFIG_PACKAGE_luci-proto-3g=y/CONFIG_PACKAGE_luci-proto-3g=n/g" .config
-sed -i "s/CONFIG_PACKAGE_luci-proto-bonding=y/CONFIG_PACKAGE_luci-proto-bonding=n/g" .config
-sed -i "s/CONFIG_PACKAGE_luci-proto-modemmanager=y/CONFIG_PACKAGE_luci-proto-modemmanager=n/g" .config
-sed -i "s/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n/g" .config
-sed -i "s/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n/g" .config
-sed -i "s/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n/g" .config
-sed -i "s/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n/g" .config
-sed -i "s/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n/g" .config
-sed -i "s/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n/g" .config
-sed -i "s/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n/g" .config
-sed -i "s/CONFIG_PACKAGE_adb-enablemodem=yCONFIG_PACKAGE_adb-enablemodem=n/g" .config
+sed -i "s/CONFIG_PACKAGE_luci-proto-3g=y/CONFIG_PACKAGE_luci-proto-3g=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_luci-proto-bonding=y/CONFIG_PACKAGE_luci-proto-bonding=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_luci-proto-modemmanager=y/CONFIG_PACKAGE_luci-proto-modemmanager=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n/g" .${GITHUB_WORKSPACE}/openwrt/config
+sed -i "s/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i "s/CONFIG_PACKAGE_adb-enablemodem=yCONFIG_PACKAGE_adb-enablemodem=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
 
 
 mkdir quectel_QMI_WWAN
@@ -331,7 +331,7 @@ CONFIG_PACKAGE_luci-app-ramfree=y
 # CONFIG_PACKAGE_luci-app-usb3disable=y
 CONFIG_PACKAGE_luci-app-luci-app-netdata=y
 CONFIG_PACKAGE_luci-app-luci-app-rtbwmon=y
-" >> .config
+" >> ${GITHUB_WORKSPACE}/openwrt/.config
 
 # 存储相关应用
 echo "
@@ -403,7 +403,7 @@ echo "
 
 #Openclash
 CONFIG_PACKAGE_luci-app-openclash=y
-" >> .config
+" >> ${GITHUB_WORKSPACE}/openwrt/.config
 
 # 去广告应用
 echo "
@@ -451,7 +451,7 @@ echo "
 echo "
 # CONFIG_PACKAGE_luci-app-mosdns=y
 CONFIG_PACKAGE_luci-app-smartdns=y
-" >> .config
+" >> ${GITHUB_WORKSPACE}/openwrt/.config
 
 # DDNS
 echo "
@@ -502,7 +502,7 @@ CONFIG_PACKAGE_luci-i18n-qmodem-sms-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-qmodem-zh-cn=y
 CONFIG_PACKAGE_quectel-CM-5G-M=y
 CONFIG_PACKAGE_luci-lua-runtime=y
-" >> .config
+" >> ${GITHUB_WORKSPACE}/openwrt/.config
 
 #补充网卡
 echo "
@@ -515,7 +515,7 @@ CONFIG_PACKAGE_ath10k-board-qca9984=y
 CONFIG_PACKAGE_ath10k-firmware-qca9888=y
 CONFIG_PACKAGE_ath10k-firmware-qca988x=y
 CONFIG_PACKAGE_ath10k-firmware-qca9984=y
-" >> .config
+" >> ${GITHUB_WORKSPACE}/openwrt/.config
 
 #5G相关
 echo "
@@ -557,10 +557,10 @@ CONFIG_PACKAGE_minicom=y
 # 脚本拨号工具依赖
 # CONFIG_PACKAGE_procps-ng=y
 # CONFIG_PACKAGE_procps-ng-ps=y
-" >> .config
+" >> ${GITHUB_WORKSPACE}/openwrt/.config
 
 # 额外组件
 echo "
 CONFIG_GRUB_IMAGES=y
 CONFIG_VMDK_IMAGES=y
-" >> .config
+" >> ${GITHUB_WORKSPACE}/openwrt/.config
