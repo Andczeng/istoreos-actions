@@ -269,6 +269,44 @@ sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为
 # cp -rf ../../Modem-Support/luci-app-hypermodem/* luci-app-hypermodem
 
 #qmodem
+echo "
+CONFIG_PACKAGE_kmod-pcie_mhi=y
+CONFIG_PACKAGE_kmod-qmi_wwan_f=y
+CONFIG_PACKAGE_kmod-qmi_wwan_q=y
+CONFIG_PACKAGE_kmod-qmi_wwan_s=y
+CONFIG_PACKAGE_luci-app-qmodem=y
+CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_vendor-qmi-wwan=y
+# CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_generic-qmi-wwan is not set
+CONFIG_PACKAGE_luci-app-qmodem_USE_TOM_CUSTOMIZED_QUECTEL_CM=y
+# CONFIG_PACKAGE_luci-app-qmodem_USING_QWRT_QUECTEL_CM_5G is not set
+# CONFIG_PACKAGE_luci-app-qmodem_USING_NORMAL_QUECTEL_CM is not set
+CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_PCI_SUPPORT=y
+# CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_MTK_T7XX_SUPPORT is not set
+CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_QFIREHOSE_SUPPORT=y
+# CONFIG_PACKAGE_luci-app-qmodem-hc is not set
+CONFIG_PACKAGE_luci-app-qmodem-mwan=y
+CONFIG_PACKAGE_luci-app-qmodem-sms=y
+CONFIG_PACKAGE_luci-app-qmodem-ttl=y
+CONFIG_PACKAGE_luci-i18n-qmodem-mwan-zh-cn=y
+# CONFIG_PACKAGE_luci-i18n-qmodem-ru is not set
+CONFIG_PACKAGE_luci-i18n-qmodem-sms-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-qmodem-zh-cn=y
+CONFIG_PACKAGE_quectel-CM-5G-M=y
+CONFIG_PACKAGE_luci-lua-runtime=y
+" >> .config
+
+sed -i 's/CONFIG_PACKAGE_luci-proto-3g=y/CONFIG_PACKAGE_luci-proto-3g=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-bonding=y/CONFIG_PACKAGE_luci-proto-bonding=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-modemmanager=y/CONFIG_PACKAGE_luci-proto-modemmanager=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n/' .config
+sed -i 's/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n/' .config
+sed -i 's/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n/' .config
+sed -i 's/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n/' .config
+sed -i 's/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n/' .config
+sed -i 's/CONFIG_PACKAGE_adb-enablemodem=y/CONFIG_PACKAGE_adb-enablemodem=n/' .config
+
 mkdir quectel_QMI_WWAN
 mkdir fibocom_QMI_WWAN
 mkdir simcom_QMI_WWAN
@@ -467,7 +505,7 @@ CONFIG_PACKAGE_luci-app-socat=y
 
 #补充网卡
 echo "
-CONFIG_PACKAGE_kmod-mt7922-firmware=y
+# CONFIG_PACKAGE_kmod-mt7922-firmware=y
 CONFIG_PACKAGE_kmod-ath=y
 CONFIG_PACKAGE_kmod-ath10k=y
 CONFIG_PACKAGE_ath10k-board-qca9888=y
