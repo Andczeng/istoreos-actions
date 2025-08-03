@@ -17,7 +17,9 @@
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
-# echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
-# echo 'src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome' >>feeds.conf.default
+echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
+echo 'src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome' >>feeds.conf.default
 # echo 'src-git mosdns https://github.com/sbwml/luci-app-mosdns' >>feeds.conf.default
 # echo 'src-git kiddin9 https://github.com/kiddin9/kwrt-packages' >>feeds.conf
+#qmodem
+echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf
