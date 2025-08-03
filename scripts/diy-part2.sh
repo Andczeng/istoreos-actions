@@ -269,7 +269,7 @@ sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为
 # cp -rf ../../Modem-Support/luci-app-hypermodem/* luci-app-hypermodem
 
 #qmodem
-echo 'src-git qmodem https://github.com/FUjr/QModem.git;main' >> feeds.conf
+
 echo "
 CONFIG_PACKAGE_kmod-pcie_mhi=y
 CONFIG_PACKAGE_kmod-qmi_wwan_f=y
