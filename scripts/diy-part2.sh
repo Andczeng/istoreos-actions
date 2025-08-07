@@ -29,13 +29,13 @@
 # $GITHUB_WORKSPACE/scripts/add-device.sh
 
 # 移除ddns
-sed -i "s/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n'.config
+sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n' .config
 
 # 移除ddnsto
 # sed -i 's/CONFIG_PACKAGE_ddnsto=y/CONFIG_PACKAGE_ddnsto=n/' .config
@@ -200,11 +200,11 @@ fi
 
 # 去广告
 #ADGuardHome（kiddin9）
-＃mkdir luci-app-adguardhome
-＃cp -rf ../../kiddin9/luci-app-adguardhome/* luci-app-adguardhome
-＃cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-adguardhome/* luci-app-adguardhome
-＃sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为root）/' luci-app-adguardhome/po/zh_Hans/adguardhome.po
-#sed -i 's/+PACKAGE_$(PKG_NAME)_INCLUDE_binary:adguardhome//' luci-app-adguardhome/Makefile
+mkdir luci-app-adguardhome
+cp -rf ../../kiddin9/luci-app-adguardhome/* luci-app-adguardhome
+cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-adguardhome/* luci-app-adguardhome
+sed -i 's/拦截DNS服务器/拦截DNS服务器（默认用户名和密码均为root）/' luci-app-adguardhome/po/zh_Hans/adguardhome.po
+sed -i 's/+PACKAGE_$(PKG_NAME)_INCLUDE_binary:adguardhome//' luci-app-adguardhome/Makefile
 #ADGuardHome（kenzok8）
 # svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
 # svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
@@ -271,17 +271,17 @@ fi
 
 #qmodem
 
-sed -i "s/CONFIG_PACKAGE_luci-proto-3g=y/CONFIG_PACKAGE_luci-proto-3g=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_luci-proto-bonding=y/CONFIG_PACKAGE_luci-proto-bonding=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_luci-proto-modemmanager=y/CONFIG_PACKAGE_luci-proto-modemmanager=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n/g" .${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
-sed -i "s/CONFIG_PACKAGE_adb-enablemodem=yCONFIG_PACKAGE_adb-enablemodem=n/g" ${GITHUB_WORKSPACE}/openwrt/.config
+sed -i 's/CONFIG_PACKAGE_luci-proto-3g=y/CONFIG_PACKAGE_luci-proto-3g=n' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-bonding=y/CONFIG_PACKAGE_luci-proto-bonding=n' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-modemmanager=y/CONFIG_PACKAGE_luci-proto-modemmanager=n' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n' .config
+sed -i 's/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n' .config
+sed -i 's/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n' .config
+sed -i 's/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n' .config
+sed -i 's/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n' .config
+sed -i 's/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n' .config
+sed -i 's/CONFIG_PACKAGE_adb-enablemodem=yCONFIG_PACKAGE_adb-enablemodem=n' .config
 
 
 mkdir quectel_QMI_WWAN
@@ -331,7 +331,7 @@ CONFIG_PACKAGE_luci-app-ramfree=y
 # CONFIG_PACKAGE_luci-app-usb3disable=y
 CONFIG_PACKAGE_luci-app-luci-app-netdata=y
 CONFIG_PACKAGE_luci-app-luci-app-rtbwmon=y
-" >> ${GITHUB_WORKSPACE}/openwrt/.config
+" >> .config
 
 # 存储相关应用
 echo "
@@ -403,7 +403,7 @@ echo "
 
 #Openclash
 CONFIG_PACKAGE_luci-app-openclash=y
-" >> ${GITHUB_WORKSPACE}/openwrt/.config
+" >> .config
 
 # 去广告应用
 echo "
@@ -451,7 +451,7 @@ echo "
 echo "
 # CONFIG_PACKAGE_luci-app-mosdns=y
 CONFIG_PACKAGE_luci-app-smartdns=y
-" >> ${GITHUB_WORKSPACE}/openwrt/.config
+" >> .config
 
 # DDNS
 echo "
@@ -502,7 +502,7 @@ CONFIG_PACKAGE_luci-i18n-qmodem-sms-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-qmodem-zh-cn=y
 CONFIG_PACKAGE_quectel-CM-5G-M=y
 CONFIG_PACKAGE_luci-lua-runtime=y
-" >> ${GITHUB_WORKSPACE}/openwrt/.config
+" >> .config
 
 #补充网卡
 echo "
@@ -515,7 +515,7 @@ CONFIG_PACKAGE_ath10k-board-qca9984=y
 CONFIG_PACKAGE_ath10k-firmware-qca9888=y
 CONFIG_PACKAGE_ath10k-firmware-qca988x=y
 CONFIG_PACKAGE_ath10k-firmware-qca9984=y
-" >> ${GITHUB_WORKSPACE}/openwrt/.config
+" >> .config
 
 #5G相关
 echo "
@@ -557,10 +557,10 @@ CONFIG_PACKAGE_minicom=y
 # 脚本拨号工具依赖
 # CONFIG_PACKAGE_procps-ng=y
 # CONFIG_PACKAGE_procps-ng-ps=y
-" >> ${GITHUB_WORKSPACE}/openwrt/.config
+" >> .config
 
 # 额外组件
 echo "
 CONFIG_GRUB_IMAGES=y
 CONFIG_VMDK_IMAGES=y
-" >> ${GITHUB_WORKSPACE}/openwrt/.config
+" >> .config
