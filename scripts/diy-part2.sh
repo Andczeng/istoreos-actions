@@ -29,13 +29,13 @@
 # $GITHUB_WORKSPACE/scripts/add-device.sh
 
 # 移除ddns
-sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n' .config
-sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n'.config
-sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts=y/CONFIG_PACKAGE_ddns-scripts=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-cloudflare=y/CONFIG_PACKAGE_ddns-scripts-cloudflare=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-dnspod=y/CONFIG_PACKAGE_ddns-scripts-dnspod=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts-services=y/CONFIG_PACKAGE_ddns-scripts-services=n/' .config
+sed -i 's/CONFIG_PACKAGE_ddns-scripts_aliyun=y/CONFIG_PACKAGE_ddns-scripts_aliyun=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/'.config
+sed -i 's/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y/CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=n/' .config
 
 # 移除ddnsto
 # sed -i 's/CONFIG_PACKAGE_ddnsto=y/CONFIG_PACKAGE_ddnsto=n/' .config
@@ -89,16 +89,16 @@ pushd kiddin9
 git clone --depth=1 https://github.com/kiddin9/kwrt-packages .
 popd
 
-#mkdir Modem-Support
-#pushd Modem-Support
-#git clone --depth=1 https://github.com/Siriling/5G-Modem-Support .
-#popd
+mkdir Modem-Support
+pushd Modem-Support
+git clone --depth=1 https://github.com/Siriling/5G-Modem-Support .
+popd
 
 #qmodem
-mkdir qmodem
-pushd qmodem
-git clone --depth=1 https://github.com/FUjr/QModem .
-popd
+#mkdir qmodem
+#pushd qmodem
+#git clone --depth=1 https://github.com/FUjr/QModem .
+#popd
 
 mkdir MyConfig
 pushd MyConfig
@@ -254,63 +254,63 @@ sed -i 's/+PACKAGE_$(PKG_NAME)_INCLUDE_binary:adguardhome//' luci-app-adguardhom
 # svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
 # 5G通信模组拨号工具
-# mkdir quectel_QMI_WWAN
-# mkdir fibocom_QMI_WWAN
-# mkdir meig_QMI_WWAN
-# mkdir tw_QMI_WWAN
-# mkdir quectel_cm_5G
-# mkdir quectel_MHI
-# mkdir luci-app-hypermodem
-# cp -rf ../../Modem-Support/quectel_QMI_WWAN/* quectel_QMI_WWAN
-# cp -rf ../../Modem-Support/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
-# cp -rf ../../Modem-Support/meig_QMI_WWAN/* meig_QMI_WWAN
-# cp -rf ../../Modem-Support/tw_QMI_WWAN/* tw_QMI_WWAN
-# cp -rf ../../Modem-Support/quectel_cm_5G/* quectel_cm_5G
-# cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
-# cp -rf ../../Modem-Support/luci-app-hypermodem/* luci-app-hypermodem
+mkdir quectel_QMI_WWAN
+mkdir fibocom_QMI_WWAN
+mkdir meig_QMI_WWAN
+mkdir tw_QMI_WWAN
+mkdir quectel_cm_5G
+mkdir quectel_MHI
+#mkdir luci-app-hypermodem
+cp -rf ../../Modem-Support/quectel_QMI_WWAN/* quectel_QMI_WWAN
+cp -rf ../../Modem-Support/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
+cp -rf ../../Modem-Support/meig_QMI_WWAN/* meig_QMI_WWAN
+cp -rf ../../Modem-Support/tw_QMI_WWAN/* tw_QMI_WWAN
+cp -rf ../../Modem-Support/quectel_cm_5G/* quectel_cm_5G
+cp -rf ../../Modem-Support/quectel_MHI/* quectel_MHI
+#cp -rf ../../Modem-Support/luci-app-hypermodem/* luci-app-hypermodem
 
 #qmodem
 
-sed -i 's/CONFIG_PACKAGE_luci-proto-3g=y/CONFIG_PACKAGE_luci-proto-3g=n' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-bonding=y/CONFIG_PACKAGE_luci-proto-bonding=n' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-modemmanager=y/CONFIG_PACKAGE_luci-proto-modemmanager=n' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n' .config
-sed -i 's/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n' .config
-sed -i 's/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n' .config
-sed -i 's/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n' .config
-sed -i 's/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n' .config
-sed -i 's/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n' .config
-sed -i 's/CONFIG_PACKAGE_adb-enablemodem=yCONFIG_PACKAGE_adb-enablemodem=n' .config
+#sed -i 's/CONFIG_PACKAGE_luci-proto-3g=y/CONFIG_PACKAGE_luci-proto-3g=n' .config
+#sed -i 's/CONFIG_PACKAGE_luci-proto-bonding=y/CONFIG_PACKAGE_luci-proto-bonding=n' .config
+#sed -i 's/CONFIG_PACKAGE_luci-proto-modemmanager=y/CONFIG_PACKAGE_luci-proto-modemmanager=n' .config
+#sed -i 's/CONFIG_PACKAGE_luci-proto-ncm=y/CONFIG_PACKAGE_luci-proto-ncm=n' .config
+#sed -i 's/CONFIG_PACKAGE_luci-proto-qmi=y/CONFIG_PACKAGE_luci-proto-qmi=n' .config
+#sed -i 's/CONFIG_PACKAGE_luci-proto-relay=y/CONFIG_PACKAGE_luci-proto-relay=n' .config
+#sed -i 's/CONFIG_PACKAGE_modemmanager=y/CONFIG_PACKAGE_modemmanager=n' .config
+#sed -i 's/CONFIG_MODEMMANAGER_WITH_MBIM=y/CONFIG_MODEMMANAGER_WITH_MBIM=n' .config
+#sed -i 's/CONFIG_MODEMMANAGER_WITH_QMI=y/CONFIG_MODEMMANAGER_WITH_QMI=n' .config
+#sed -i 's/CONFIG_MODEMMANAGER_WITH_QRTR=y/CONFIG_MODEMMANAGER_WITH_QRTR=n' .config
+#sed -i 's/CONFIG_PACKAGE_adb-enablemodem=yCONFIG_PACKAGE_adb-enablemodem=n' .config
 
 
-mkdir quectel_QMI_WWAN
-mkdir fibocom_QMI_WWAN
-mkdir simcom_QMI_WWAN
-mkdir quectel_MHI
-cp -rf ../../qmodem/driver/quectel_QMI_WWAN/* quectel_QMI_WWAN
-cp -rf ../../qmodem/driver/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
-cp -rf ../../qmodem/driver/simcom_QMI_WWAN/* simcom_QMI_WWAN
-cp -rf ../../qmodem/driver/quectel_MHI/* quectel_MHI
+#mkdir quectel_QMI_WWAN
+#mkdir fibocom_QMI_WWAN
+#mkdir simcom_QMI_WWAN
+#mkdir quectel_MHI
+#cp -rf ../../qmodem/driver/quectel_QMI_WWAN/* quectel_QMI_WWAN
+#cp -rf ../../qmodem/driver/fibocom_QMI_WWAN/* fibocom_QMI_WWAN
+#cp -rf ../../qmodem/driver/simcom_QMI_WWAN/* simcom_QMI_WWAN
+#cp -rf ../../qmodem/driver/quectel_MHI/* quectel_MHI
 
 # 5G模组短信插件
-# cp -rf temp/luci-app-sms-tool/* luci-app-sms-tool
-# mkdir sms-tool
-# mkdir luci-app-sms-tool
-# cp -rf ../../Modem-Support/sms-tool/* sms-tool
-# cp -rf ../../Modem-Support/luci-app-sms-tool/* luci-app-sms-tool
-# cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-sms-tool/* luci-app-sms-tool
+cp -rf temp/luci-app-sms-tool/* luci-app-sms-tool
+mkdir sms-tool
+mkdir luci-app-sms-tool
+cp -rf ../../Modem-Support/sms-tool/* sms-tool
+cp -rf ../../Modem-Support/luci-app-sms-tool/* luci-app-sms-tool
+cp -rf ../../MyConfig/configs/istoreos/general/applications/luci-app-sms-tool/* luci-app-sms-tool
 
 # 5G模组信息插件
-# svn export https://github.com/qiuweichao/luci-app-modem-info/trunk/luci-app-3ginfo-lite
-# svn export https://github.com/owner888/luci-app-3ginfo-zh_cn/trunk/3ginfo
-# svn export https://github.com/owner888/luci-app-3ginfo-zh_cn/trunk/luci-app-3ginfo
+svn export https://github.com/qiuweichao/luci-app-modem-info/trunk/luci-app-3ginfo-lite
+svn export https://github.com/owner888/luci-app-3ginfo-zh_cn/trunk/3ginfo
+svn export https://github.com/owner888/luci-app-3ginfo-zh_cn/trunk/luci-app-3ginfo
 
 # 5G模组信息插件+AT工具
-#mkdir luci-app-modem
-#cp -rf ../../Modem-Support/luci-app-modem/* luci-app-modem
-#rm -rf ../../Modem-Support/luci-app-modem/po/zh_Hans #解决汉化问题
-#popd
+mkdir luci-app-modem
+cp -rf ../../Modem-Support/luci-app-modem/* luci-app-modem
+rm -rf ../../Modem-Support/luci-app-modem/po/zh_Hans #解决汉化问题
+popd
 
 # 5G模组拨号脚本
 # mkdir -p package/base-files/files/root/5GModem
@@ -483,24 +483,24 @@ CONFIG_PACKAGE_kmod-pcie_mhi=y
 CONFIG_PACKAGE_kmod-qmi_wwan_f=y
 CONFIG_PACKAGE_kmod-qmi_wwan_q=y
 CONFIG_PACKAGE_kmod-qmi_wwan_s=y
-CONFIG_PACKAGE_luci-app-qmodem=y
-CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_vendor-qmi-wwan=y
+#CONFIG_PACKAGE_luci-app-qmodem=y
+#CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_vendor-qmi-wwan=y
 # CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_generic-qmi-wwan is not set
-CONFIG_PACKAGE_luci-app-qmodem_USE_TOM_CUSTOMIZED_QUECTEL_CM=y
+#CONFIG_PACKAGE_luci-app-qmodem_USE_TOM_CUSTOMIZED_QUECTEL_CM=y
 # CONFIG_PACKAGE_luci-app-qmodem_USING_QWRT_QUECTEL_CM_5G is not set
 # CONFIG_PACKAGE_luci-app-qmodem_USING_NORMAL_QUECTEL_CM is not set
-CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_PCI_SUPPORT=y
+#CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_PCI_SUPPORT=y
 # CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_MTK_T7XX_SUPPORT is not set
-CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_QFIREHOSE_SUPPORT=y
+#CONFIG_PACKAGE_luci-app-qmodem_INCLUDE_ADD_QFIREHOSE_SUPPORT=y
 # CONFIG_PACKAGE_luci-app-qmodem-hc is not set
-CONFIG_PACKAGE_luci-app-qmodem-mwan=y
-CONFIG_PACKAGE_luci-app-qmodem-sms=y
-CONFIG_PACKAGE_luci-app-qmodem-ttl=y
-CONFIG_PACKAGE_luci-i18n-qmodem-mwan-zh-cn=y
+#CONFIG_PACKAGE_luci-app-qmodem-mwan=y
+#CONFIG_PACKAGE_luci-app-qmodem-sms=y
+#CONFIG_PACKAGE_luci-app-qmodem-ttl=y
+#CONFIG_PACKAGE_luci-i18n-qmodem-mwan-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-qmodem-ru is not set
-CONFIG_PACKAGE_luci-i18n-qmodem-sms-zh-cn=y
-CONFIG_PACKAGE_luci-i18n-qmodem-zh-cn=y
-CONFIG_PACKAGE_quectel-CM-5G-M=y
+#CONFIG_PACKAGE_luci-i18n-qmodem-sms-zh-cn=y
+#CONFIG_PACKAGE_luci-i18n-qmodem-zh-cn=y
+#CONFIG_PACKAGE_quectel-CM-5G-M=y
 CONFIG_PACKAGE_luci-lua-runtime=y
 " >> .config
 
@@ -520,25 +520,25 @@ CONFIG_PACKAGE_ath10k-firmware-qca9984=y
 #5G相关
 echo "
 # 5G模组信号插件
-# CONFIG_PACKAGE_ext-rooter-basic=y
+CONFIG_PACKAGE_ext-rooter-basic=y
 
 # 5G模组短信插件
-# CONFIG_PACKAGE_luci-app-sms-tool=y
+CONFIG_PACKAGE_luci-app-sms-tool=y
 
 # 5G模组信息插件
-# CONFIG_PACKAGE_luci-app-3ginfo-lite=y
-# CONFIG_PACKAGE_luci-app-3ginfo=y
+CONFIG_PACKAGE_luci-app-3ginfo-lite=y
+CONFIG_PACKAGE_luci-app-3ginfo=y
 
 # 5G模组信息插件+AT工具
 # CONFIG_PACKAGE_luci-app-cpe=y
-# CONFIG_PACKAGE_sendat=y
-# CONFIG_PACKAGE_sms-tool=y
-# CONFIG_PACKAGE_luci-app-modem=y
+CONFIG_PACKAGE_sendat=y
+CONFIG_PACKAGE_sms-tool=y
+CONFIG_PACKAGE_luci-app-modem=y
 
 # CONFIG_PACKAGE_kmod-qmi_wwan_q=y
 # CONFIG_PACKAGE_kmod-qmi_wwan_f=y
 # CONFIG_PACKAGE_kmod-qmi_wwan_m=y
-# CONFIG_PACKAGE_kmod-qmi_wwan_t=y
+CONFIG_PACKAGE_kmod-qmi_wwan_t=y
 
 # QMI拨号工具（移远，广和通）
 # CONFIG_PACKAGE_quectel-CM-5G=y
